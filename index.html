@@ -433,6 +433,81 @@ main.stage{
 .settings-row .lbl{font-size:13.5px;}
 .settings-row .desc{font-size:12px;color:var(--ink-soft);margin-top:2px;}
 
+/* ============ AUTH ============ */
+#authRoot{min-height:100vh;display:none;}
+.auth-shell{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;}
+@media(max-width:860px){.auth-shell{grid-template-columns:1fr;}}
+.auth-brand-panel{
+  background:var(--surface-raised);border-right:1px solid var(--line);
+  padding:52px 56px;display:flex;flex-direction:column;position:relative;overflow:hidden;
+}
+@media(max-width:860px){.auth-brand-panel{display:none;}}
+.auth-brand-panel .mark{font-family:var(--font-display);font-size:22px;font-weight:700;}
+.auth-brand-panel .big-line{font-family:var(--font-display);font-size:38px;line-height:1.18;font-weight:600;max-width:420px;margin-top:auto;}
+.auth-brand-panel .foot-note{font-size:12.5px;color:var(--ink-soft);max-width:360px;margin-top:28px;}
+.auth-brand-panel .index-strip{display:flex;flex-direction:column;gap:8px;margin-top:22px;}
+.auth-brand-panel .index-strip .row{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:8px;}
+
+.auth-form-panel{display:flex;align-items:center;justify-content:center;padding:48px 24px;}
+.auth-card{width:100%;max-width:380px;}
+.auth-card h1{font-size:27px;margin-bottom:6px;}
+.auth-card .sub{font-size:13.5px;color:var(--ink-soft);margin-bottom:26px;}
+.auth-field{margin-bottom:15px;}
+.auth-field label{display:block;font-size:11px;font-family:var(--font-mono);color:var(--ink-soft);margin-bottom:6px;}
+.auth-input-wrap{position:relative;}
+.auth-input-wrap input{width:100%;}
+.pw-toggle{
+  position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--ink-soft);
+  font-size:11px;cursor:pointer;font-family:var(--font-mono);
+}
+.auth-row-between{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;margin-bottom:18px;}
+.auth-check{display:flex;align-items:center;gap:7px;color:var(--ink-soft);}
+.auth-check input{accent-color:var(--accent);width:14px;height:14px;}
+.auth-error{background:var(--bad-tint);color:var(--bad);border-radius:var(--radius-sm);padding:10px 12px;font-size:12.5px;margin-bottom:16px;display:none;}
+.auth-error.show{display:block;}
+.auth-success{background:var(--good-tint);color:var(--good);border-radius:var(--radius-sm);padding:10px 12px;font-size:12.5px;margin-bottom:16px;}
+.pw-strength-track{height:4px;border-radius:2px;background:var(--paper-dim);overflow:hidden;margin-top:8px;border:1px solid var(--line);}
+.pw-strength-fill{height:100%;width:0%;background:var(--bad);transition:width .25s ease, background .25s ease;}
+.pw-strength-label{font-size:11px;color:var(--ink-soft);margin-top:5px;font-family:var(--font-mono);}
+.pw-reqs{list-style:none;padding:0;margin:8px 0 0;font-size:11.5px;color:var(--ink-soft);display:flex;flex-direction:column;gap:3px;}
+.pw-reqs li::before{content:"○ ";}
+.pw-reqs li.ok{color:var(--good);}
+.pw-reqs li.ok::before{content:"● ";}
+.auth-switch{margin-top:20px;font-size:13px;color:var(--ink-soft);text-align:center;}
+.auth-switch button{background:none;border:none;color:var(--accent-strong);cursor:pointer;font-size:13px;text-decoration:underline;text-underline-offset:3px;padding:0;font-family:var(--font-ui);}
+.demo-banner{
+  border:1px solid var(--mark);background:var(--mark-tint);color:var(--mark);border-radius:var(--radius-sm);
+  padding:9px 12px;font-size:11.5px;margin-bottom:22px;line-height:1.5;
+}
+.token-box{
+  border:1px dashed var(--line-strong);border-radius:var(--radius-sm);padding:12px 14px;margin-bottom:16px;
+  font-family:var(--font-mono);font-size:12px;word-break:break-all;background:var(--surface-raised);
+}
+.spinner{
+  width:13px;height:13px;border-radius:50%;border:2px solid rgba(255,255,255,0.4);border-top-color:#fff;
+  animation:spin .7s linear infinite;display:inline-block;
+}
+.btn:not(.btn-primary) .spinner{border-color:var(--line-strong);border-top-color:var(--ink);}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+.verify-banner{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  background:var(--mark-tint);border:1px solid var(--mark);color:var(--ink);border-radius:var(--radius-sm);
+  padding:12px 16px;margin-bottom:24px;font-size:13px;
+}
+.verify-banner .vb-actions{display:flex;gap:8px;align-items:center;}
+.verify-banner input{width:88px;}
+
+.rail-account{
+  border:1px solid var(--line);border-radius:var(--radius-sm);padding:9px 10px;margin-bottom:16px;
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+}
+.rail-account .who{min-width:0;}
+.rail-account .who .nm{font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.rail-account .who .em{font-size:10.5px;color:var(--ink-soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.rail-account button{background:none;border:none;color:var(--ink-soft);font-size:11px;cursor:pointer;font-family:var(--font-mono);flex-shrink:0;}
+.rail-account button:hover{color:var(--bad);}
+
 /* toast */
 .toast{
   position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);
@@ -450,6 +525,8 @@ html[data-theme="dark"] .toast{background:var(--surface-raised);color:var(--ink)
 </head>
 <body>
 <div class="scrim-grid"></div>
+<div id="authRoot"></div>
+<div id="appRoot" style="display:none;">
 <div class="topbar">
   <span class="mark">Examora</span>
   <button class="menu-btn" id="menuBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
@@ -461,6 +538,7 @@ html[data-theme="dark"] .toast{background:var(--surface-raised);color:var(--ink)
       <span class="mark">Examora</span>
       <span class="sub">v1.0</span>
     </div>
+    <div class="rail-account" id="railAccount"></div>
     <div class="rail-index-label">Index</div>
     <nav class="rail-nav" id="railNav"></nav>
     <div class="rail-foot">
@@ -509,6 +587,7 @@ html[data-theme="dark"] .toast{background:var(--surface-raised);color:var(--ink)
     </div>
   </div>
 </div>
+</div>
 
 <div class="toast" id="toast"></div>
 
@@ -517,9 +596,9 @@ html[data-theme="dark"] .toast{background:var(--surface-raised);color:var(--ink)
 "use strict";
 
 /* ============================================================
-   STATE
+   STATE  (namespaced per authenticated user — see AUTH section below)
    ============================================================ */
-const STORAGE_KEY = 'examora_state_v1';
+function stateKey(userId){ return 'examora_state_' + userId; }
 const QTYPES = {
   mcq: 'Multiple Choice',
   tf: 'True or False',
@@ -534,25 +613,25 @@ function defaultState(){
     reviewers: [],
     errorArchive: [],   // {id, questionText, type, subject, reviewerId, yourAnswer, correctAnswer, explanation, ts}
     activity: [],        // {ts, text}
-    theme: 'dark',
     lastReviewerId: null,
     streak: {count:0, lastDate:null},
     mockDuration: 15 // minutes default
   };
 }
 
-let state = load();
+let state = null; // set once a user is authenticated, via loadStateForUser()
 
-function load(){
+function loadStateForUser(userId){
   try{
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(stateKey(userId));
     if(!raw) return defaultState();
     const parsed = JSON.parse(raw);
     return Object.assign(defaultState(), parsed);
   }catch(e){ return defaultState(); }
 }
 function persist(){
-  try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }catch(e){}
+  if(!currentUser) return;
+  try{ localStorage.setItem(stateKey(currentUser.id), JSON.stringify(state)); }catch(e){}
 }
 function logActivity(text){
   state.activity.unshift({ts:Date.now(), text});
@@ -580,15 +659,24 @@ function toast(msg){
 }
 
 /* ============================================================
-   THEME
+   THEME  (a global UI preference — independent of any account,
+   so it also applies on the login/sign-up screens)
    ============================================================ */
+let uiTheme = 'dark';
+try{ uiTheme = localStorage.getItem('examora_theme') || 'dark'; }catch(e){}
 function applyTheme(){
-  document.documentElement.setAttribute('data-theme', state.theme);
-  document.getElementById('btnLight').classList.toggle('on', state.theme==='light');
-  document.getElementById('btnDark').classList.toggle('on', state.theme==='dark');
+  document.documentElement.setAttribute('data-theme', uiTheme);
+  const bl = document.getElementById('btnLight'), bd = document.getElementById('btnDark');
+  if(bl) bl.classList.toggle('on', uiTheme==='light');
+  if(bd) bd.classList.toggle('on', uiTheme==='dark');
 }
-document.getElementById('btnLight').addEventListener('click', ()=>{ state.theme='light'; persist(); applyTheme(); });
-document.getElementById('btnDark').addEventListener('click', ()=>{ state.theme='dark'; persist(); applyTheme(); });
+function setTheme(t){
+  uiTheme = t;
+  try{ localStorage.setItem('examora_theme', t); }catch(e){}
+  applyTheme();
+}
+document.getElementById('btnLight').addEventListener('click', ()=>setTheme('light'));
+document.getElementById('btnDark').addEventListener('click', ()=>setTheme('dark'));
 
 /* ============================================================
    MOBILE NAV DRAWER
@@ -632,6 +720,19 @@ function buildRail(){
     nav.appendChild(b);
   });
   document.getElementById('streakChip').textContent = state.streak.count + (state.streak.count===1?' day':' days');
+  renderAccountBox();
+}
+function renderAccountBox(){
+  const box = document.getElementById('railAccount');
+  if(!box || !currentUser) return;
+  box.innerHTML = `
+    <div class="who">
+      <div class="nm">${escapeHtml(currentUser.fullName)}</div>
+      <div class="em">${escapeHtml(currentUser.email)}</div>
+    </div>
+    <button id="railLogoutBtn" title="Log out">Log out</button>
+  `;
+  document.getElementById('railLogoutBtn').addEventListener('click', logout);
 }
 
 function navigate(viewId, params){
@@ -645,6 +746,7 @@ function navigate(viewId, params){
 function render(viewId, params){
   const stage = document.getElementById('stage');
   stage.innerHTML = '';
+  if(currentUser && !currentUser.verified){ stage.appendChild(buildVerifyBanner()); }
   const renderers = {
     overview: renderOverview,
     reviewers: renderReviewers,
@@ -1626,6 +1728,58 @@ function renderSettings(stage){
   const head = el('div','section-head'); head.innerHTML = `<h2>Settings</h2>`;
   stage.appendChild(head);
 
+  const acctGroup = el('div','settings-group');
+  acctGroup.innerHTML = `<h4>Account</h4>`;
+  const rowA = el('div','settings-row');
+  rowA.innerHTML = `<div><div class="lbl">${escapeHtml(currentUser.fullName)}</div><div class="desc">${escapeHtml(currentUser.email)} · ${currentUser.verified ? 'Verified':'Not verified'}</div></div>`;
+  const logoutBtn = el('button','btn btn-sm','Log out');
+  logoutBtn.addEventListener('click', logout);
+  rowA.appendChild(logoutBtn);
+  acctGroup.appendChild(rowA);
+
+  const pwBtn = el('button','btn btn-sm','Change password');
+  const pwForm = el('div'); pwForm.style.cssText='display:none;width:100%;margin-top:12px;';
+  pwForm.innerHTML = `
+    <div class="auth-error" id="pwChangeErr"></div>
+    <div class="field" style="margin-bottom:10px;"><label>Current password</label><input type="password" class="text-input" id="curPw" style="width:100%;"></div>
+    <div class="field" style="margin-bottom:10px;"><label>New password</label><input type="password" class="text-input" id="newPw" style="width:100%;"></div>
+    <div class="pw-strength-track"><div class="pw-strength-fill" id="pwFillSettings"></div></div>
+    <div class="pw-strength-label" id="pwLabelSettings">&nbsp;</div>
+    <button class="btn btn-primary btn-sm" id="pwSaveBtn" style="margin-top:10px;">Update password</button>
+  `;
+  pwBtn.addEventListener('click', ()=>{ pwForm.style.display = pwForm.style.display==='none' ? 'block':'none'; });
+  const rowPwWrap = el('div'); rowPwWrap.style.cssText='display:flex;flex-direction:column;width:100%;padding:10px 0;border-bottom:1px solid var(--line);';
+  const rowPwTop = el('div','settings-row'); rowPwTop.style.cssText='border:none;padding:0;width:100%;';
+  rowPwTop.innerHTML = `<div><div class="lbl">Password</div><div class="desc">Change the password used to sign in.</div></div>`;
+  rowPwTop.appendChild(pwBtn);
+  rowPwWrap.appendChild(rowPwTop);
+  rowPwWrap.appendChild(pwForm);
+  acctGroup.appendChild(rowPwWrap);
+  stage.appendChild(acctGroup);
+
+  wirePasswordStrength(document.getElementById('newPw'), document.getElementById('pwFillSettings'), document.getElementById('pwLabelSettings'));
+  document.getElementById('pwSaveBtn').addEventListener('click', async ()=>{
+    const cur = document.getElementById('curPw').value;
+    const next = document.getElementById('newPw').value;
+    const errEl = document.getElementById('pwChangeErr');
+    errEl.classList.remove('show');
+    try{
+      const curHash = await sha256Hex(currentUser.salt + cur);
+      if(curHash !== currentUser.passwordHash){ errEl.textContent='Current password is incorrect.'; errEl.classList.add('show'); return; }
+      const reqs = passwordRequirements(next);
+      if(!reqs.every(r=>r.ok)){ errEl.textContent='New password does not meet the requirements below.'; errEl.classList.add('show'); return; }
+      const newSalt = randomHex(16);
+      const newHash = await sha256Hex(newSalt + next);
+      updateUserRecord(currentUser.id, {salt:newSalt, passwordHash:newHash});
+      currentUser.salt = newSalt; currentUser.passwordHash = newHash;
+      toast('Password updated');
+      pwForm.style.display='none';
+      document.getElementById('curPw').value=''; document.getElementById('newPw').value='';
+    }catch(err){
+      errEl.textContent='Something went wrong — please try again.'; errEl.classList.add('show');
+    }
+  });
+
   const appearance = el('div','settings-group');
   appearance.innerHTML = `<h4>Appearance</h4>`;
   const row1 = el('div','settings-row');
@@ -1635,10 +1789,10 @@ function renderSettings(stage){
   row1.appendChild(tt);
   appearance.appendChild(row1);
   stage.appendChild(appearance);
-  document.getElementById('stLight').classList.toggle('on', state.theme==='light');
-  document.getElementById('stDark').classList.toggle('on', state.theme==='dark');
-  document.getElementById('stLight').addEventListener('click', ()=>{ state.theme='light'; persist(); applyTheme(); renderSettings(stage); });
-  document.getElementById('stDark').addEventListener('click', ()=>{ state.theme='dark'; persist(); applyTheme(); renderSettings(stage); });
+  document.getElementById('stLight').classList.toggle('on', uiTheme==='light');
+  document.getElementById('stDark').classList.toggle('on', uiTheme==='dark');
+  document.getElementById('stLight').addEventListener('click', ()=>{ setTheme('light'); renderSettings(stage); });
+  document.getElementById('stDark').addEventListener('click', ()=>{ setTheme('dark'); renderSettings(stage); });
 
   const examGroup = el('div','settings-group');
   examGroup.innerHTML = `<h4>Exams</h4>`;
@@ -1666,29 +1820,570 @@ function renderSettings(stage){
   dataGroup.appendChild(row3);
 
   const row4 = el('div','settings-row');
-  row4.innerHTML = `<div><div class="lbl">Reset all data</div><div class="desc">Permanently erase every reviewer, attempt, and archived mistake.</div></div>`;
+  row4.innerHTML = `<div><div class="lbl">Reset study data</div><div class="desc">Erase your reviewers, attempts, and archived mistakes. Your account stays active.</div></div>`;
   const resetBtn = el('button','btn btn-sm btn-danger','Reset');
   resetBtn.addEventListener('click', ()=>{
-    if(confirm('This will permanently delete everything. Continue?')){
+    if(confirm('This will permanently delete all of your reviewers and progress. Continue?')){
       state = defaultState();
       persist();
-      applyTheme();
       buildRail();
       navigate('overview');
-      toast('All data cleared');
+      toast('Study data cleared');
     }
   });
   row4.appendChild(resetBtn);
   dataGroup.appendChild(row4);
+
+  const row5 = el('div','settings-row');
+  row5.innerHTML = `<div><div class="lbl">Delete account</div><div class="desc">Permanently remove your account and every reviewer, attempt, and archived mistake tied to it.</div></div>`;
+  const delBtn = el('button','btn btn-sm btn-danger','Delete account');
+  delBtn.addEventListener('click', ()=>{
+    if(confirm('This permanently deletes your Examora account and all of its data. This cannot be undone. Continue?')){
+      deleteAccount(currentUser.id);
+    }
+  });
+  row5.appendChild(delBtn);
+  dataGroup.appendChild(row5);
   stage.appendChild(dataGroup);
+}
+
+/* ============================================================
+   AUTH — Demo Authentication Mode
+   ------------------------------------------------------------
+   This is a single self-contained HTML file with no server behind
+   it, so it cannot reach a real identity provider — the page can
+   only load from a short allow-list of script/font hosts, not call
+   an arbitrary auth API such as Supabase or Firebase. What follows
+   is therefore a clearly-labeled DEMO authentication system:
+     - No password is ever stored in plain text. Each one is combined
+       with a random per-account salt and hashed with SHA-256 via the
+       browser's native Web Crypto API before it is written anywhere.
+     - Everything still lives in this browser's localStorage, so it
+       is only as private as this device — it is NOT a substitute
+       for a real backend auth provider in a production deployment.
+   ============================================================ */
+const USERS_KEY = 'examora_auth_users';
+const SESSION_KEY = 'examora_session';
+const RESET_KEY = 'examora_reset_tokens';
+const SESSION_TTL_REMEMBER = 30*24*60*60*1000;  // 30 days
+const SESSION_TTL_DEFAULT = 12*60*60*1000;      // 12 hours
+
+let currentUser = null;
+const failedAttempts = {}; // identifier -> {count, lockUntil}
+
+function randomHex(bytes){
+  const arr = new Uint8Array(bytes);
+  if(window.crypto && crypto.getRandomValues){
+    crypto.getRandomValues(arr);
+  } else {
+    for(let i=0;i<bytes;i++) arr[i] = Math.floor(Math.random()*256);
+  }
+  return Array.from(arr).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+/* SHA-256 via Web Crypto when available (secure/HTTPS contexts). Web
+   Crypto's subtle API is only exposed in secure contexts, so when this
+   file is opened directly from disk (file://) or over plain HTTP it can
+   be undefined — in that case fall back to a salted, iterated non-crypto
+   hash so the demo login flow still works end-to-end everywhere. */
+async function sha256Hex(str){
+  if(window.crypto && crypto.subtle && crypto.subtle.digest){
+    try{
+      const enc = new TextEncoder().encode(str);
+      const buf = await crypto.subtle.digest('SHA-256', enc);
+      return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+    }catch(e){ /* fall through to the fallback below */ }
+  }
+  return fallbackHash(str);
+}
+function fallbackHash(str){
+  // Deterministic, salted, multi-round hash used only when Web Crypto
+  // isn't available. Not cryptographically strong — a stopgap for demo
+  // use outside a secure context, not a substitute for crypto.subtle.
+  let h1 = 0x811c9dc5, h2 = 0x1000193;
+  for(let round=0; round<3; round++){
+    const input = str + '::' + round;
+    for(let i=0;i<input.length;i++){
+      const c = input.charCodeAt(i);
+      h1 = (h1 ^ c) >>> 0; h1 = Math.imul(h1, 16777619) >>> 0;
+      h2 = (h2 + c) >>> 0; h2 = Math.imul(h2 ^ (h2>>>15), 2246822519) >>> 0;
+    }
+  }
+  return (h1.toString(16).padStart(8,'0')) + (h2.toString(16).padStart(8,'0')) + str.length.toString(16).padStart(4,'0');
+}
+
+/* ---------- user store ---------- */
+function getUsers(){ try{ return JSON.parse(localStorage.getItem(USERS_KEY))||[]; }catch(e){ return []; } }
+function saveUsers(users){ try{ localStorage.setItem(USERS_KEY, JSON.stringify(users)); }catch(e){} }
+function findUserByEmail(email){ return getUsers().find(u=>u.email.toLowerCase()===String(email).trim().toLowerCase()); }
+function findUserByUsername(username){ return getUsers().find(u=>u.username.toLowerCase()===String(username).trim().toLowerCase()); }
+function findUserById(id){ return getUsers().find(u=>u.id===id); }
+function updateUserRecord(id, patch){
+  const users = getUsers();
+  const idx = users.findIndex(u=>u.id===id);
+  if(idx===-1) return;
+  users[idx] = Object.assign(users[idx], patch);
+  saveUsers(users);
+}
+function deleteAccount(id){
+  saveUsers(getUsers().filter(u=>u.id!==id));
+  try{ localStorage.removeItem(stateKey(id)); }catch(e){}
+  logout();
+  toast('Account deleted');
+}
+
+/* ---------- sessions ---------- */
+function createSession(userId, remember){
+  const token = randomHex(24);
+  const ttl = remember ? SESSION_TTL_REMEMBER : SESSION_TTL_DEFAULT;
+  const session = {userId, token, expiresAt: Date.now()+ttl};
+  try{
+    if(remember){ localStorage.setItem(SESSION_KEY, JSON.stringify(session)); sessionStorage.removeItem(SESSION_KEY); }
+    else { sessionStorage.setItem(SESSION_KEY, JSON.stringify(session)); localStorage.removeItem(SESSION_KEY); }
+  }catch(e){}
+  return session;
+}
+function readSession(){
+  try{
+    const s = sessionStorage.getItem(SESSION_KEY);
+    if(s) return JSON.parse(s);
+    const l = localStorage.getItem(SESSION_KEY);
+    if(l) return JSON.parse(l);
+  }catch(e){}
+  return null;
+}
+function clearSession(){ try{ sessionStorage.removeItem(SESSION_KEY); localStorage.removeItem(SESSION_KEY); }catch(e){} }
+function getActiveSession(){
+  const s = readSession();
+  if(!s) return null;
+  if(Date.now() > s.expiresAt){ clearSession(); return null; }
+  return s;
+}
+
+/* ---------- validation ---------- */
+function isValidEmail(email){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).trim()); }
+function passwordRequirements(pw){
+  pw = pw||'';
+  return [
+    {label:'At least 8 characters', ok: pw.length>=8},
+    {label:'One uppercase letter', ok: /[A-Z]/.test(pw)},
+    {label:'One lowercase letter', ok: /[a-z]/.test(pw)},
+    {label:'One number', ok: /[0-9]/.test(pw)},
+  ];
+}
+function passwordStrengthScore(pw){
+  pw = pw||'';
+  let score = 0;
+  if(pw.length>=8) score++;
+  if(pw.length>=12) score++;
+  if(/[A-Z]/.test(pw) && /[a-z]/.test(pw)) score++;
+  if(/[0-9]/.test(pw)) score++;
+  if(/[^A-Za-z0-9]/.test(pw)) score++;
+  return Math.min(score,4);
+}
+function wirePasswordStrength(inputEl, fillEl, labelEl){
+  if(!inputEl) return;
+  const labels = ['Very weak','Weak','Fair','Strong','Very strong'];
+  const colors = ['var(--bad)','var(--bad)','var(--mark)','var(--good)','var(--good)'];
+  const update = ()=>{
+    const score = passwordStrengthScore(inputEl.value);
+    fillEl.style.width = (inputEl.value ? (score+1)*20 : 0)+'%';
+    fillEl.style.background = colors[score];
+    labelEl.textContent = inputEl.value ? labels[score] : '\u00A0';
+  };
+  inputEl.addEventListener('input', update);
+  update();
+}
+function sanitizeInput(s){ return String(s||'').trim(); }
+
+/* ---------- brute-force lockout ---------- */
+function isLocked(identifier){
+  const rec = failedAttempts[identifier.toLowerCase()];
+  return !!(rec && rec.lockUntil && Date.now() < rec.lockUntil);
+}
+function recordFailure(identifier){
+  const key = identifier.toLowerCase();
+  const rec = failedAttempts[key] || {count:0, lockUntil:0};
+  rec.count++;
+  if(rec.count>=5){ rec.lockUntil = Date.now()+30000; rec.count=0; }
+  failedAttempts[key]=rec;
+}
+function clearFailures(identifier){ delete failedAttempts[identifier.toLowerCase()]; }
+
+/* ---------- email verification banner ---------- */
+function buildVerifyBanner(){
+  // Self-heal: guarantee a code exists even for accounts created before this existed.
+  if(!currentUser.verifyCode){
+    const code = String(Math.floor(100000+Math.random()*900000));
+    updateUserRecord(currentUser.id, {verifyCode:code});
+    currentUser.verifyCode = code;
+  }
+  const b = el('div','verify-banner');
+  b.innerHTML = `
+    <span>Verify your email to keep full access to Examora. Demo mode — no email is sent, so your code is shown right here: <span class="token-box" style="display:inline-block;padding:2px 8px;margin:0 2px;">${escapeHtml(currentUser.verifyCode)}</span></span>
+    <div class="vb-actions">
+      <input type="text" id="vbCode" placeholder="Code" maxlength="6" inputmode="numeric">
+      <button class="btn btn-sm" id="vbConfirm">Verify</button>
+      <button class="btn btn-sm btn-ghost" id="vbResend">Resend code</button>
+    </div>
+  `;
+  const codeInput = b.querySelector('#vbCode');
+  function doVerify(){
+    const val = codeInput.value.trim();
+    if(currentUser.verifyCode && val===currentUser.verifyCode){
+      updateUserRecord(currentUser.id, {verified:true});
+      currentUser.verified = true;
+      toast('Email verified');
+      navigate(currentView);
+    } else {
+      toast('Incorrect code — check the code shown in the banner');
+    }
+  }
+  b.querySelector('#vbResend').addEventListener('click', ()=>{
+    const code = String(Math.floor(100000+Math.random()*900000));
+    updateUserRecord(currentUser.id, {verifyCode:code});
+    currentUser.verifyCode = code;
+    toast('New demo code generated');
+    navigate(currentView);
+  });
+  b.querySelector('#vbConfirm').addEventListener('click', doVerify);
+  codeInput.addEventListener('keydown', e=>{ if(e.key==='Enter') doVerify(); });
+  return b;
+}
+
+/* ---------- auth screens ---------- */
+function authShellTemplate(innerHtml){
+  return `
+    <div class="auth-shell">
+      <div class="auth-brand-panel">
+        <span class="mark">Examora</span>
+        <div class="big-line">Prepare smarter.<br>Perform better.</div>
+        <div>
+          <div class="index-strip">
+            <div class="row"><span>Reviewers</span><span>Private to your account</span></div>
+            <div class="row"><span>Quiz history</span><span>Private to your account</span></div>
+            <div class="row"><span>Error archive</span><span>Private to your account</span></div>
+          </div>
+          <p class="foot-note">Every study record is scoped to your account — no one else signed in on this device can see your reviewers or scores.</p>
+        </div>
+      </div>
+      <div class="auth-form-panel"><div class="auth-card">${innerHtml}</div></div>
+    </div>
+  `;
+}
+function showAuthView(view, params){
+  params = params || {};
+  document.getElementById('appRoot').style.display='none';
+  const root = document.getElementById('authRoot');
+  root.style.display='block';
+  const renderers = { login: renderLoginView, signup: renderSignupView, forgot: renderForgotView, reset: renderResetView };
+  (renderers[view]||renderLoginView)(root, params);
+}
+
+function renderLoginView(root){
+  root.innerHTML = authShellTemplate(`
+    <h1>Welcome back</h1>
+    <div class="sub">Sign in to continue your reviewers and progress.</div>
+    <div class="demo-banner">Demo Authentication Mode — accounts are stored only in this browser, for testing. Not a production auth backend.</div>
+    <div class="auth-error" id="loginErr"></div>
+    <div class="auth-field"><label>Email or username</label><input type="text" class="text-input" id="loginId" autocomplete="username"></div>
+    <div class="auth-field">
+      <label>Password</label>
+      <div class="auth-input-wrap">
+        <input type="password" class="text-input" id="loginPw" autocomplete="current-password">
+        <button type="button" class="pw-toggle" id="loginPwToggle">Show</button>
+      </div>
+    </div>
+    <div class="auth-row-between">
+      <label class="auth-check"><input type="checkbox" id="loginRemember" checked> Remember me</label>
+      <button class="link-btn" id="gotoForgot" type="button">Forgot password?</button>
+    </div>
+    <button class="btn btn-primary btn-block" id="loginBtn">Log in</button>
+    <div class="auth-switch">Don't have an account? <button id="gotoSignup" type="button">Sign up</button></div>
+  `);
+  wireShowHide('loginPwToggle','loginPw');
+  document.getElementById('gotoSignup').addEventListener('click', ()=>showAuthView('signup'));
+  document.getElementById('gotoForgot').addEventListener('click', ()=>showAuthView('forgot'));
+  document.getElementById('loginBtn').addEventListener('click', handleLogin);
+  root.querySelectorAll('input').forEach(i=>i.addEventListener('keydown', e=>{ if(e.key==='Enter') handleLogin(); }));
+}
+
+async function handleLogin(){
+  const idVal = sanitizeInput(document.getElementById('loginId').value);
+  const pw = document.getElementById('loginPw').value;
+  const remember = document.getElementById('loginRemember').checked;
+  const errEl = document.getElementById('loginErr');
+  errEl.classList.remove('show');
+  if(!idVal || !pw){ errEl.textContent='Enter your email/username and password.'; errEl.classList.add('show'); return; }
+  if(isLocked(idVal)){ errEl.textContent='Too many failed attempts. Please wait a moment and try again.'; errEl.classList.add('show'); return; }
+
+  const btn = document.getElementById('loginBtn');
+  setLoading(btn, true, 'Log in');
+  try{
+    await sleep(500);
+    const user = idVal.includes('@') ? findUserByEmail(idVal) : findUserByUsername(idVal);
+    if(!user){
+      recordFailure(idVal);
+      errEl.textContent='No account matches those details.'; errEl.classList.add('show');
+      return;
+    }
+    const hash = await sha256Hex(user.salt + pw);
+    if(hash !== user.passwordHash){
+      recordFailure(idVal);
+      errEl.textContent='Incorrect password.'; errEl.classList.add('show');
+      return;
+    }
+    clearFailures(idVal);
+    createSession(user.id, remember);
+    enterApp(user);
+    toast('Welcome back, '+user.fullName.split(' ')[0]);
+  }catch(err){
+    errEl.textContent='Something went wrong logging you in — please try again.'; errEl.classList.add('show');
+  }finally{
+    setLoading(btn,false,'Log in');
+  }
+}
+
+function renderSignupView(root){
+  root.innerHTML = authShellTemplate(`
+    <h1>Create your account</h1>
+    <div class="sub">Build reviewers, track progress, and keep it all to yourself.</div>
+    <div class="demo-banner">Demo Authentication Mode — for testing only. Passwords are salted and hashed before storage, but everything lives in this browser.</div>
+    <div class="auth-error" id="signupErr"></div>
+    <div class="auth-field"><label>Full name</label><input type="text" class="text-input" id="suName" autocomplete="name"></div>
+    <div class="auth-field"><label>Username</label><input type="text" class="text-input" id="suUsername" autocomplete="username"></div>
+    <div class="auth-field"><label>Email</label><input type="email" class="text-input" id="suEmail" autocomplete="email"></div>
+    <div class="auth-field">
+      <label>Password</label>
+      <div class="auth-input-wrap">
+        <input type="password" class="text-input" id="suPw" autocomplete="new-password">
+        <button type="button" class="pw-toggle" id="suPwToggle">Show</button>
+      </div>
+      <div class="pw-strength-track"><div class="pw-strength-fill" id="suPwFill"></div></div>
+      <div class="pw-strength-label" id="suPwLabel">&nbsp;</div>
+      <ul class="pw-reqs" id="suPwReqs"></ul>
+    </div>
+    <div class="auth-field">
+      <label>Confirm password</label>
+      <div class="auth-input-wrap">
+        <input type="password" class="text-input" id="suPw2" autocomplete="new-password">
+        <button type="button" class="pw-toggle" id="suPw2Toggle">Show</button>
+      </div>
+    </div>
+    <div class="auth-row-between" style="margin-bottom:14px;">
+      <label class="auth-check"><input type="checkbox" id="suTerms"> I agree to the Terms and Conditions</label>
+    </div>
+    <button class="btn btn-primary btn-block" id="signupBtn">Create account</button>
+    <div class="auth-switch">Already have an account? <button id="gotoLogin" type="button">Log in</button></div>
+  `);
+  wireShowHide('suPwToggle','suPw');
+  wireShowHide('suPw2Toggle','suPw2');
+  const pwInput = document.getElementById('suPw');
+  wirePasswordStrength(pwInput, document.getElementById('suPwFill'), document.getElementById('suPwLabel'));
+  const reqsList = document.getElementById('suPwReqs');
+  function drawReqs(){ reqsList.innerHTML = passwordRequirements(pwInput.value).map(r=>`<li class="${r.ok?'ok':''}">${r.label}</li>`).join(''); }
+  pwInput.addEventListener('input', drawReqs); drawReqs();
+  document.getElementById('gotoLogin').addEventListener('click', ()=>showAuthView('login'));
+  document.getElementById('signupBtn').addEventListener('click', handleSignup);
+  root.querySelectorAll('input').forEach(i=>i.addEventListener('keydown', e=>{ if(e.key==='Enter') handleSignup(); }));
+}
+
+async function handleSignup(){
+  const fullName = sanitizeInput(document.getElementById('suName').value);
+  const username = sanitizeInput(document.getElementById('suUsername').value);
+  const email = sanitizeInput(document.getElementById('suEmail').value);
+  const pw = document.getElementById('suPw').value;
+  const pw2 = document.getElementById('suPw2').value;
+  const terms = document.getElementById('suTerms').checked;
+  const errEl = document.getElementById('signupErr');
+  errEl.classList.remove('show');
+
+  if(!fullName || !username || !email || !pw || !pw2){ errEl.textContent='Fill in every field.'; errEl.classList.add('show'); return; }
+  if(!isValidEmail(email)){ errEl.textContent='Enter a valid email address.'; errEl.classList.add('show'); return; }
+  if(findUserByEmail(email)){ errEl.textContent='An account with this email already exists.'; errEl.classList.add('show'); return; }
+  if(findUserByUsername(username)){ errEl.textContent='That username is taken.'; errEl.classList.add('show'); return; }
+  if(!passwordRequirements(pw).every(r=>r.ok)){ errEl.textContent='Password does not meet the requirements above.'; errEl.classList.add('show'); return; }
+  if(pw!==pw2){ errEl.textContent='Passwords do not match.'; errEl.classList.add('show'); return; }
+  if(!terms){ errEl.textContent='Please agree to the Terms and Conditions.'; errEl.classList.add('show'); return; }
+
+  const btn = document.getElementById('signupBtn');
+  setLoading(btn, true, 'Create account');
+  try{
+    await sleep(600);
+    const salt = randomHex(16);
+    const passwordHash = await sha256Hex(salt + pw);
+    const verifyCode = String(Math.floor(100000+Math.random()*900000));
+    const user = { id: uid(), fullName, username, email, salt, passwordHash, verified:false, verifyCode, createdAt: Date.now() };
+    const users = getUsers(); users.push(user); saveUsers(users);
+
+    createSession(user.id, true);
+    enterApp(user);
+    toast('Account created — verify your email below to finish setup');
+  }catch(err){
+    errEl.textContent='Something went wrong creating your account — please try again.'; errEl.classList.add('show');
+  }finally{
+    setLoading(btn,false,'Create account');
+  }
+}
+
+function renderForgotView(root){
+  root.innerHTML = authShellTemplate(`
+    <h1>Reset your password</h1>
+    <div class="sub">Enter the email on your account.</div>
+    <div class="demo-banner">Demo mode — no email is actually sent. A reset token is shown here instead.</div>
+    <div id="forgotBody">
+      <div class="auth-error" id="forgotErr"></div>
+      <div class="auth-field"><label>Email</label><input type="email" class="text-input" id="forgotEmail"></div>
+      <button class="btn btn-primary btn-block" id="forgotBtn">Send reset link</button>
+    </div>
+    <div class="auth-switch">Remembered it? <button id="gotoLoginFromForgot" type="button">Log in</button></div>
+  `);
+  document.getElementById('gotoLoginFromForgot').addEventListener('click', ()=>showAuthView('login'));
+  document.getElementById('forgotBtn').addEventListener('click', async ()=>{
+    const email = sanitizeInput(document.getElementById('forgotEmail').value);
+    const errEl = document.getElementById('forgotErr');
+    errEl.classList.remove('show');
+    if(!isValidEmail(email)){ errEl.textContent='Enter a valid email address.'; errEl.classList.add('show'); return; }
+    const btn = document.getElementById('forgotBtn');
+    setLoading(btn,true,'Send reset link');
+    try{
+      await sleep(500);
+      const user = findUserByEmail(email);
+      const body = document.getElementById('forgotBody');
+      if(!user){
+        body.innerHTML = `<div class="auth-success">If an account exists for that email, a reset link has been generated.</div>`;
+        return;
+      }
+      const token = randomHex(20);
+      const tokens = getResetTokens();
+      tokens[email.toLowerCase()] = {token, expiresAt: Date.now()+15*60*1000};
+      saveResetTokens(tokens);
+      body.innerHTML = `
+        <div class="auth-success">Reset link generated. In a real deployment this would be emailed to you — it's shown directly here since this is demo mode.</div>
+        <div class="token-box">Token: ${token}</div>
+        <button class="btn btn-primary btn-block" id="continueResetBtn">Continue to reset password</button>
+      `;
+      document.getElementById('continueResetBtn').addEventListener('click', ()=>showAuthView('reset', {email, token}));
+    }catch(err){
+      errEl.textContent='Something went wrong — please try again.'; errEl.classList.add('show');
+    }finally{
+      setLoading(btn,false,'Send reset link');
+    }
+  });
+}
+
+function getResetTokens(){ try{ return JSON.parse(localStorage.getItem(RESET_KEY))||{}; }catch(e){ return {}; } }
+function saveResetTokens(t){ try{ localStorage.setItem(RESET_KEY, JSON.stringify(t)); }catch(e){} }
+
+function renderResetView(root, params){
+  root.innerHTML = authShellTemplate(`
+    <h1>Choose a new password</h1>
+    <div class="sub">${params.email ? 'Resetting password for '+escapeHtml(params.email) : 'Enter your reset token and a new password.'}</div>
+    <div class="auth-error" id="resetErr"></div>
+    ${params.email ? '' : `<div class="auth-field"><label>Email</label><input type="email" class="text-input" id="resetEmail"></div>`}
+    ${params.token ? '' : `<div class="auth-field"><label>Reset token</label><input type="text" class="text-input" id="resetToken"></div>`}
+    <div class="auth-field">
+      <label>New password</label>
+      <div class="auth-input-wrap">
+        <input type="password" class="text-input" id="resetPw" autocomplete="new-password">
+        <button type="button" class="pw-toggle" id="resetPwToggle">Show</button>
+      </div>
+      <div class="pw-strength-track"><div class="pw-strength-fill" id="resetPwFill"></div></div>
+      <div class="pw-strength-label" id="resetPwLabel">&nbsp;</div>
+      <ul class="pw-reqs" id="resetPwReqs"></ul>
+    </div>
+    <div class="auth-field"><label>Confirm new password</label><input type="password" class="text-input" id="resetPw2"></div>
+    <button class="btn btn-primary btn-block" id="resetBtn">Reset password</button>
+    <div class="auth-switch"><button id="gotoLoginFromReset" type="button">Back to log in</button></div>
+  `);
+  wireShowHide('resetPwToggle','resetPw');
+  const pwInput = document.getElementById('resetPw');
+  wirePasswordStrength(pwInput, document.getElementById('resetPwFill'), document.getElementById('resetPwLabel'));
+  const reqsList = document.getElementById('resetPwReqs');
+  function drawReqs(){ reqsList.innerHTML = passwordRequirements(pwInput.value).map(r=>`<li class="${r.ok?'ok':''}">${r.label}</li>`).join(''); }
+  pwInput.addEventListener('input', drawReqs); drawReqs();
+  document.getElementById('gotoLoginFromReset').addEventListener('click', ()=>showAuthView('login'));
+
+  document.getElementById('resetBtn').addEventListener('click', async ()=>{
+    const errEl = document.getElementById('resetErr');
+    errEl.classList.remove('show');
+    const email = params.email || sanitizeInput(document.getElementById('resetEmail').value);
+    const token = params.token || sanitizeInput(document.getElementById('resetToken').value);
+    const pw = document.getElementById('resetPw').value;
+    const pw2 = document.getElementById('resetPw2').value;
+    if(!email || !token){ errEl.textContent='Enter your email and reset token.'; errEl.classList.add('show'); return; }
+    const tokens = getResetTokens();
+    const rec = tokens[email.toLowerCase()];
+    if(!rec || rec.token!==token || Date.now()>rec.expiresAt){ errEl.textContent='That reset link is invalid or has expired.'; errEl.classList.add('show'); return; }
+    if(!passwordRequirements(pw).every(r=>r.ok)){ errEl.textContent='Password does not meet the requirements above.'; errEl.classList.add('show'); return; }
+    if(pw!==pw2){ errEl.textContent='Passwords do not match.'; errEl.classList.add('show'); return; }
+    const user = findUserByEmail(email);
+    if(!user){ errEl.textContent='No account matches that email.'; errEl.classList.add('show'); return; }
+
+    const btn = document.getElementById('resetBtn');
+    setLoading(btn,true,'Reset password');
+    try{
+      await sleep(500);
+      const salt = randomHex(16);
+      const passwordHash = await sha256Hex(salt+pw);
+      updateUserRecord(user.id, {salt, passwordHash});
+      delete tokens[email.toLowerCase()]; saveResetTokens(tokens);
+      toast('Password reset — you can log in now');
+      showAuthView('login');
+    }catch(err){
+      errEl.textContent='Something went wrong — please try again.'; errEl.classList.add('show');
+      setLoading(btn,false,'Reset password');
+    }
+  });
+}
+
+function wireShowHide(btnId, inputId){
+  const btn = document.getElementById(btnId), input = document.getElementById(inputId);
+  if(!btn||!input) return;
+  btn.addEventListener('click', ()=>{
+    const show = input.type==='password';
+    input.type = show ? 'text':'password';
+    btn.textContent = show ? 'Hide':'Show';
+  });
+}
+function setLoading(btn, loading, label){
+  btn.disabled = loading;
+  btn.innerHTML = loading ? `<span class="spinner"></span> Working…` : label;
+}
+function sleep(ms){ return new Promise(r=>setTimeout(r,ms)); }
+
+/* ---------- enter / exit app ---------- */
+function enterApp(user){
+  currentUser = user;
+  state = loadStateForUser(user.id);
+  document.getElementById('authRoot').style.display='none';
+  document.getElementById('appRoot').style.display='block';
+  applyTheme();
+  buildRail();
+  navigate('overview');
+}
+function logout(){
+  clearSession();
+  currentUser = null;
+  state = null;
+  document.getElementById('appRoot').style.display='none';
+  showAuthView('login');
+  toast('Logged out');
 }
 
 /* ============================================================
    INIT
    ============================================================ */
-applyTheme();
-buildRail();
-navigate('overview');
+function boot(){
+  applyTheme();
+  const session = getActiveSession();
+  if(session){
+    const user = findUserById(session.userId);
+    if(user){ enterApp(user); return; }
+    clearSession();
+  }
+  showAuthView('login');
+}
+boot();
 
 })();
 </script>
